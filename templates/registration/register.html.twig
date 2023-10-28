@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	{% include 'widget/nav.html.twig' %}
+
+	<section class="container mt-5 mb-5">
+
+		<div class="row" style="height:70vh;">
+
+			<div class="col d-flex justify-content-center align-items-center">
+				{{form_start(registrationForm)}}
+				<h1>Inscription</h1>
+
+				{{ form_errors(registrationForm) }}
+
+				{{ form_row(registrationForm.email) }}
+
+				{{ form_row(registrationForm.lastname) }}
+				{{ form_row(registrationForm.firstname) }}
+				{{ form_row(registrationForm.plainPassword, {
+                  label: 'Password'
+                }) 
+                }}
+
+				{{ form_row(registrationForm.address) }}
+				{{ form_row(registrationForm.zipcode) }}
+				{{ form_row(registrationForm.city) }}
+
+
+				{{ form_row(registrationForm.RGPDconsent) }}
+
+				<button type="submit" class="btn btn-primary btn my-3">S'inscrire</button>
+
+				{{form_end(registrationForm)}}
+
+			</div>
+		</div>
+	</section>
+
+	{% include 'widget/footer.html.twig' %}
+{% endblock %}
