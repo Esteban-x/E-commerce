@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/produits', name: 'app_product')]
+#[Route('/produits', name: 'products')]
 class ProductController extends AbstractController
 {
     #[Route('/', name: 'index')]
@@ -18,11 +18,9 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{slug}', name: 'product_details')]
+    #[Route('/{slug}', name: '_details')]
     public function details(Products $product): Response
     {
-
-
         return $this->render('product/details.html.twig', [
             'controller_name' => 'ProductController',
             'product' => $product

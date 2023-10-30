@@ -1,0 +1,25 @@
+{{ form_start(productForm) }}
+{{ form_row(productForm.name) }}
+{{ form_row(productForm.description) }}
+{{ form_row(productForm.price) }}
+{{ form_row(productForm.stock) }}
+{{ form_row(productForm.categories) }}
+
+{% if app.request.attributes.get('_route') == 'admin_products_edit' %}
+<h2>Images</h2>
+
+{% for image in product.images %}
+<div>
+    <img src="{{ asset('assets/uploads/products/mini/300x300-' ~ image.name) }}" alt="image" width="150">
+</div>
+{% endfor %}
+
+
+
+{% endif %}
+{{ form_row(productForm.image) }}
+
+<button class="btn btn-primary" type="submit">{{button_label|default('Ajouter')}}</button>
+
+{{ form_end(productForm) }}
+

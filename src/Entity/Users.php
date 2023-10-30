@@ -100,9 +100,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setResetToken(?string $resetToken): self
     {
-         $this->resetToken = $resetToken;
+        $this->resetToken = $resetToken;
 
-         return $this;
+        return $this;
     }
 
     /**
